@@ -2,4 +2,6 @@
 *.tfstate
 .DS_Store
 *.backup
+*.tfstate.lock.info
+*.svg
 .terraform

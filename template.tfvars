@@ -1,0 +1,14 @@
+project_id                           = 
+region                               = 
+zone                                 = 
+json_credentials                     = 
+helm_version                         = 
+proxy_secret_token                   = 
+proxy_https_hosts                    = 
+proxy_https_letsencrypt_contactemail = 
+auth_google_client_id                = 
+auth_google_client_secret            = 
+auth_google_callback_url             = 
+singleuser_image_name                = 
+singleuser_image_tag                 = 
+placeholders                         = 

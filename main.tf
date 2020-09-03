@@ -123,6 +123,11 @@ resource "helm_release" "jhub" {
     name  = "singleuser.image.tag"
     value = var.singleuser_image_tag
   }
+
+  set_sensitive {
+    name  = "scheduling.userPlaceholder.replicas"
+    value = var.placeholders
+  }
   # Prints IP 
   provisioner "local-exec" {
     command = "kubectl get services -n jhub"

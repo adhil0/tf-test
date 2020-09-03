@@ -6,7 +6,6 @@ scheduling:
     enabled: true
   userPlaceholder:
     enabled: true
-    replicas: 1
   userPods:
     nodeAffinity:
       matchNodePurpose: require

@@ -114,3 +114,7 @@ variable "singleuser_image_name" {
 variable "singleuser_image_tag" {
   description = "tag of image"
 }
+
+variable "placeholders" {
+  description = "number of placeholder pods"
+}
