@@ -9,6 +9,10 @@ output "region" {
 }
 
 output "host" {
-  value       = var.proxy_https_hosts
+  value       = var.proxy_https_hosts[0]
   description = "host"
+}
+
+output "IP" {
+  value       = data.kubernetes_service.example.load_balancer_ingress.0.ip
 }
