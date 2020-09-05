@@ -107,3 +107,10 @@ data "google_container_cluster" "primary" {
   name     = google_container_cluster.primary.name
   location = var.zone
 }
+
+data "kubernetes_service" "IP" {
+  metadata {
+    name = "proxy-public"
+    namespace = helm_release.jhub.metadata[0].namespace
+  }
+}
