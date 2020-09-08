@@ -22,8 +22,8 @@ resource "google_compute_subnetwork" "subnet" {
 
 # GKE cluster
 resource "google_container_cluster" "primary" {
-  # name     = "${var.project_id}-gke"
-  name     = "fall-2020-ling226"  # name must start with a letter
+  name     = "${var.project_id}-gke"
+  # name     = "fall-2020-ling226"  # name must start with a letter
   location = var.zone
 
   remove_default_node_pool = false
@@ -45,7 +45,7 @@ resource "google_container_cluster" "primary" {
   }
   # Connect to cluster for future Kubectl commands
   provisioner "local-exec" {
-    command = "gcloud container clusters get-credentials fall-2020-ling226 --zone ${var.zone} --project ${var.project_id}"
+    command = "gcloud container clusters get-credentials ${var.project_id}-gke --zone ${var.zone} --project ${var.project_id}"
   }
 }
   # cluster_autoscaling {
