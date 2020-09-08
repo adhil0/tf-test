@@ -129,10 +129,10 @@ resource "helm_release" "jhub" {
     value = var.placeholders
   }
 
-  set_sensitive [
+  set_sensitive {
     name  = "proxy.service.loadBalancerIP"
     value = var.IP
-  ]
+  }
   # Prints IP 
   provisioner "local-exec" {
     command = "kubectl get services -n jhub"
