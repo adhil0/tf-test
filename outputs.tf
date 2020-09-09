@@ -14,5 +14,6 @@ output "host" {
 }
 
 output "IP" {
-  value       = data.kubernetes_service.example.load_balancer_ingress.0.ip
+  value       = google_compute_address.default.address
+  #data.kubernetes_service.example.load_balancer_ingress.0.ip
 }

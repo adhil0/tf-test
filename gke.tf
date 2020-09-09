@@ -19,6 +19,9 @@ resource "google_compute_subnetwork" "subnet" {
   network       = google_compute_network.vpc.name
   ip_cidr_range = "10.10.0.0/24"
 }
+resource "google_compute_address" "default" {
+  name    = "external-ip"
+}
 
 # GKE cluster
 resource "google_container_cluster" "primary" {
@@ -43,6 +46,7 @@ resource "google_container_cluster" "primary" {
       issue_client_certificate = true  # Might need to change to false
     }
   }
+
   # Connect to cluster for future Kubectl commands
   provisioner "local-exec" {
     command = "gcloud container clusters get-credentials ${var.project_id}-gke --zone ${var.zone} --project ${var.project_id}"
@@ -104,14 +108,14 @@ resource "google_container_node_pool" "primary_nodes" {
 data "google_client_config" "provider" {
 }
 
-data "google_container_cluster" "primary" {
-  name     = google_container_cluster.primary.name
-  location = var.zone
-}
+# data "google_container_cluster" "primary" {
+#   name     = google_container_cluster.primary.name
+#   location = var.zone
+# }
 
-data "kubernetes_service" "example" {
-  metadata {
-    name = "proxy-public"
-    namespace = helm_release.jhub.metadata[0].namespace
-  }
-}
+# data "kubernetes_service" "example" {
+#   metadata {
+#     name = "proxy-public"
+#     namespace = helm_release.jhub.metadata[0].namespace
+#   }
+# }

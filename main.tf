@@ -7,10 +7,10 @@ provider "kubernetes" {
   load_config_file       = false
 
   # Used to connect to the cluster
-  host                   = "https://${data.google_container_cluster.primary.endpoint}"
+  host                   = "https://${google_container_cluster.primary.endpoint}"
   token                  = data.google_client_config.provider.access_token
   cluster_ca_certificate = base64decode(
-    data.google_container_cluster.primary.master_auth[0].cluster_ca_certificate,
+    google_container_cluster.primary.master_auth[0].cluster_ca_certificate,
   )
 }
 
@@ -64,10 +64,10 @@ provider "helm" {
     load_config_file       = false
 
   # Used to connect to the cluster
-    host                   = "https://${data.google_container_cluster.primary.endpoint}"
+    host                   = "https://${google_container_cluster.primary.endpoint}"
     token                  = data.google_client_config.provider.access_token
     cluster_ca_certificate = base64decode(
-    data.google_container_cluster.primary.master_auth[0].cluster_ca_certificate,
+    google_container_cluster.primary.master_auth[0].cluster_ca_certificate,
   )
   }
 }
@@ -131,7 +131,7 @@ resource "helm_release" "jhub" {
 
   set_sensitive {
     name  = "proxy.service.loadBalancerIP"
-    value = var.IP
+    value = google_compute_address.default.address
   }
   # Prints IP 
   provisioner "local-exec" {
