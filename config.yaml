@@ -16,16 +16,15 @@ cull:
   every: 300
 
 singleuser:
+  defaultUrl: /rstudio
   cpu:
-    limit: 0.5
-    guarantee: 0.05
+    limit: 1
+    guarantee: 0.5
   memory:
-    # change to limit 512 w/ no guarantee
-    # 512 not enough for some reason
     limit: 1G
     guarantee: 512M
   storage:
-    capacity: 1G
+    capacity: 2G
     # dynamic:
     #   storageClass: jupyterhub-user-ssd
 
@@ -34,3 +33,9 @@ auth:
   google:
     hostedDomain: [ucsb.edu]
     loginService: "UCSBnetID" 
+  admin:
+    users:
+      - eespinosa
+      - syoh
+      - pwind10
+      - adhitya

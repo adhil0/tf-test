@@ -118,7 +118,3 @@ variable "singleuser_image_tag" {
 variable "placeholders" {
   description = "number of placeholder pods"
 }
-
-variable "IP" {
-  description = "IP address to point DNS towards"
-}
