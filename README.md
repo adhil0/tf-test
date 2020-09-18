@@ -15,6 +15,7 @@
    - Kubernetes Engine Admin (roles/container.admin)
    - Service Account User (roles/iam.serviceAccountUser)
 14. Enable [Google Compute Engine](https://console.developers.google.com/apis/library/compute.googleapis.com) and [Kubernetes Engine API](https://console.developers.google.com/apis/library/container.googleapis.com)
+15. Make sure you have a YAML file for the helm chart in the same directory as the terraform files
 15. Fill out `template.tfvars` file with desired parameters 
 16. Run `terraform init`  
 17. Run `terraform plan -var-file=template.tfvars`  
