@@ -1,10 +1,18 @@
-# Specifying minimum versions for Terraform and providers 
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.13"
   required_providers {
-    helm       = ">= 1.2"
-    google     = ">= 3.32"
-    kubernetes = ">= 1.11"
+    helm = {
+      source  = "hashicorp/helm"
+      version = ">= 1.2"
+    }
+    google = {
+      source  = "hashicorp/google"
+      version = ">= 3.32"
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = ">= 1.11"
+    }
   }
-  
+
 }

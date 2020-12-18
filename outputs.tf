@@ -1,5 +1,5 @@
 output "kubernetes_cluster_name" {
-  value       = google_container_cluster.primary.name
+  value       = module.gke.name
   description = "GKE Cluster Name"
 }
 
@@ -14,5 +14,6 @@ output "host" {
 }
 
 output "IP" {
-  value       = data.kubernetes_service.IP.load_balancer_ingress.0.ip
+  value = data.kubernetes_service.example.load_balancer_ingress.0.ip
 }
+
