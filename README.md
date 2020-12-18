@@ -1,5 +1,7 @@
 # Setup
 
+First, run `git clone https://github.com/adhil0/tf-test.git` in your terminal.
+
 ## If You Are Using the Master Branch:
 
 1. [Create Project on Google Cloud Platform](https://console.cloud.google.com/projectcreate)
@@ -26,6 +28,7 @@
 
 ## If You Are Using the Modules Branch: 
 
+1. Run `git checkout modules` in terminal
 1. [Create Project on Google Cloud Platform](https://console.cloud.google.com/projectcreate)
 2. [Make Sure You Have Owner Privileges](https://console.cloud.google.com/iam-admin/iam) 
 3. [Set Up Billing](https://console.cloud.google.com/billing)
