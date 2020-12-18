@@ -29,11 +29,11 @@ First, run `git clone https://github.com/adhil0/tf-test.git` in your terminal.
 ## If You Are Using the Modules Branch: 
 
 1. Run `git checkout modules` in terminal
-1. [Create Project on Google Cloud Platform](https://console.cloud.google.com/projectcreate)
-2. [Make Sure You Have Owner Privileges](https://console.cloud.google.com/iam-admin/iam) 
-3. [Set Up Billing](https://console.cloud.google.com/billing)
-4. Enable [Google Compute Engine](https://console.developers.google.com/apis/library/compute.googleapis.com) and [Kubernetes Engine API](https://console.developers.google.com/apis/library/container.googleapis.com)
-5. Fill out `template.tfvars` file with desired parameters or unlock `terraform.tfvars` using `git-crypt unlock path/to/key`
-6. Run `terraform init`  
-7. Run `terraform plan -var-file=template.tfvars`  
-8. Run `terraform apply -var-file=template.tfvars` 
+2. [Create Project on Google Cloud Platform](https://console.cloud.google.com/projectcreate)
+3. [Make Sure You Have Owner Privileges](https://console.cloud.google.com/iam-admin/iam) 
+4. [Set Up Billing](https://console.cloud.google.com/billing)
+5. Enable [Google Compute Engine](https://console.developers.google.com/apis/library/compute.googleapis.com) and [Kubernetes Engine API](https://console.developers.google.com/apis/library/container.googleapis.com)
+6. Fill out `template.tfvars` file with desired parameters or unlock `terraform.tfvars` using `git-crypt unlock path/to/key`
+7. Run `terraform init`  
+8. Run `terraform plan -var-file=template.tfvars`  
+9. Run `terraform apply -var-file=template.tfvars` 
