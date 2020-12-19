@@ -54,7 +54,7 @@ Create Service Account
 module "service_accounts" {
   source        = "terraform-google-modules/service-accounts/google"
   project_id    = var.project_id
-  names         = [var.project_id] #[var.service_account_name]
+  names         = [var.service_account_name]
   project_roles = formatlist("${var.project_id}=>%s", var.service_account_roles)
 
   display_name  = "Single Account"
@@ -68,7 +68,7 @@ Create Cluster and Node Pools
 module "gke" {
   source                            = "terraform-google-modules/kubernetes-engine/google//modules/beta-public-cluster"
   project_id                        = var.project_id
-  name                              = "${var.project_id}-gke-2" #TODO: Variabilize
+  name                              = "${var.project_id}-gke" #TODO: Variabilize
   region                            = var.region
   zones                             = [var.zone]
   network                           = "default"
