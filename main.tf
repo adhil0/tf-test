@@ -51,16 +51,16 @@ module "project-factory" {
 /*********************
 Create Service Account
 **********************/
-module "service_accounts" {
-  source        = "terraform-google-modules/service-accounts/google"
-  project_id    = var.project_id
-  names         = [var.service_account_name]
-  project_roles = formatlist("${var.project_id}=>%s", var.service_account_roles)
+# module "service_accounts" {
+#   source        = "terraform-google-modules/service-accounts/google"
+#   project_id    = var.project_id
+#   names         = [var.service_account_name]
+#   project_roles = formatlist("${var.project_id}=>%s", var.service_account_roles)
 
-  display_name  = "Single Account"
-  description   = "Single Account Description"
-  generate_keys = true
-}
+#   display_name  = "Single Account"
+#   description   = "Single Account Description"
+#   generate_keys = true
+# }
 
 /***********************************
 Create Cluster and Node Pools
