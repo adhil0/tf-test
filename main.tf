@@ -68,7 +68,7 @@ Create Cluster and Node Pools
 module "gke" {
   source                            = "terraform-google-modules/kubernetes-engine/google//modules/beta-public-cluster"
   project_id                        = var.project_id
-  name                              = "${var.project_id}-gke" #TODO: Variabilize
+  name                              = "${var.project_id}-gke"
   region                            = var.region
   zones                             = [var.zone]
   network                           = "default"
@@ -114,7 +114,7 @@ module "gke" {
   node_pools_tags = {
     user-pool = [
       "gke-node",
-      "${var.project_id}-gke-1", #TODO: Variabilize
+      "${var.project_id}-gke-1",
     ]
   }
 }
