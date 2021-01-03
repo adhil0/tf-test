@@ -179,7 +179,7 @@ cull:
 
 singleuser:
   cpu:
-    limit: 1
+    limit: 0.5
     guarantee: 0.5
   memory:
     limit: 1G
