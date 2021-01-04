@@ -2,7 +2,7 @@
 Provider Configuration
 ***********************/
 provider "google" {
-  project = var.project_id # create dependency on project google_project.my_project.project_id
+  project = var.project_id
   region  = var.region
   zone    = var.zone
 }
@@ -27,40 +27,6 @@ provider "helm" {
 
 data "google_client_config" "default" {
 }
-/* CREATE PROJECT
-module "project-factory" {
-  source                  = "terraform-google-modules/project-factory/google"
-
-  project_id       				= test
-  name                    = "test-project"
-  org_id                  = 867683236978 #TODO: variabilize
-  billing_account         = 01AB5F-7559AA-EBD05A  #TODO: Variabilize
-  # credentials_path        = local.credentials_file_path
-	activate_apis           = ["compute.googleapis.com", "container.googleapis.com"] #TODO
-	auto_create_network     = true
-#   activate_api_identities = [{
-#     api = "healthcare.googleapis.com"
-#     roles = [
-#       "roles/healthcare.serviceAgent",
-#       "roles/bigquery.jobUser",
-#     ]
-#   }]
-# }
-*/
-#TODO Do we need this? gke module can create service accounts
-/*********************
-Create Service Account
-**********************/
-# module "service_accounts" {
-#   source        = "terraform-google-modules/service-accounts/google"
-#   project_id    = var.project_id
-#   names         = [var.service_account_name]
-#   project_roles = formatlist("${var.project_id}=>%s", var.service_account_roles)
-
-#   display_name  = "Single Account"
-#   description   = "Single Account Description"
-#   generate_keys = true
-# }
 
 /***********************************
 Create Cluster and Node Pools
@@ -251,6 +217,7 @@ auth:
   }
 }
 
+# Gets IP address for output
 data "kubernetes_service" "example" {
   metadata {
     name      = "proxy-public"
@@ -258,6 +225,7 @@ data "kubernetes_service" "example" {
   }
 }
 
+# Configures kubectl locally
 resource "null_resource" "configure_kubectl" {
   provisioner "local-exec" {
     command = "gcloud container clusters get-credentials ${module.gke.name} --region ${var.region} --project ${var.project_id}"
