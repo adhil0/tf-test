@@ -6,12 +6,6 @@ project_id =
 region     = 
 zone       = 
 
-/**********************
-Create Service Account
-***********************/
-service_account_name = 
-service_account_roles = # Example: ["role1", "role2"]
-
 /***********************************
 Create Cluster and Node Pools
 ************************************/

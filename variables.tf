@@ -13,18 +13,6 @@ variable "zone" {
   description = "zone"
 }
 
-/**********************
-Create Service Account
-***********************/
-variable "service_account_name" {
-  description = "name of service account"
-}
-
-variable "service_account_roles" {
-  type        = list(string)
-  description = "Roles assigned to service account"
-}
-
 /***********************************
 Create Cluster and Node Pools
 ************************************/
